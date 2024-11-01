@@ -31,6 +31,7 @@ public class MessageController {
     }
 
     @PostMapping("/message")
+    //"Implementación de POST: Crear nuevo mensaje"
     public ResponseEntity<Message> addMessage(@RequestBody Message message) {
         Message newMessage = messageService.addMessage(message);
         return ResponseEntity.status(HttpStatus.CREATED).body(newMessage);
