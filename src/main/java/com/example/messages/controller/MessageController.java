@@ -45,6 +45,7 @@ public class MessageController {
     }
 
     @DeleteMapping("/message/{id}")
+    //"Implementación de DELETE: Eliminar mensaje por ID"
     public ResponseEntity<Void> deleteMessage(@PathVariable Long id) {
         return messageService.deleteMessage(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
