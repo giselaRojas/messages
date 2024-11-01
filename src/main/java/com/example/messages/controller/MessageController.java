@@ -18,11 +18,13 @@ public class MessageController {
     private MessageService messageService;
 
     @GetMapping("/messages")
+    //Implementación de GET: Obtener lista completa de mensajes
     public List<Message> getAllMessages() {
         return messageService.getAllMessages();
     }
 
     @GetMapping("/message/{id}")
+    //Implementación de GET por ID: Obtener mensaje específico
     public ResponseEntity<Message> getMessageById(@PathVariable Long id) {
         Optional<Message> message = messageService.getMessageById(id);
         return message.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
