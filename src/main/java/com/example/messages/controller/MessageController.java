@@ -38,6 +38,7 @@ public class MessageController {
     }
 
     @PutMapping("/message/{id}")
+    //"Implementación de PUT: Actualizar mensaje existente"
     public ResponseEntity<Message> updateMessage(@PathVariable Long id, @RequestBody Message updatedMessage) {
         Optional<Message> message = messageService.updateMessage(id, updatedMessage);
         return message.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
